@@ -9,11 +9,17 @@ from langchain_community.document_loaders import PyMuPDFLoader
 from langchain.chains import RetrievalQA
 from langchain_community.embeddings import OpenAIEmbeddings
 from langchain_groq import ChatGroq
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
+import google.generativeai as genai
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 
 # Load API keys from Streamlit secrets
 openai_api = st.secrets["OPENAI_API_KEY"]
 groq_api = st.secrets["GROQ_API_KEY"]
+
+st.secrets["GOOGLE_API_KEY"]
+genai.configure(api_key=st.secret["GOOGLE_API_KEY"])
 
 st.title("PDF Question Answering App")
 
@@ -34,7 +40,8 @@ if uploaded_file is not None:
     
     
     # Create vector store and retriever
-    embeddings = OpenAIEmbeddings(api_key=openai_api)
+    
+    embeddings = GoogleGenerativeAIEmbeddings(model = "models/embedding-001")
     vector_db = FAISS.from_documents(documents, embeddings)
     retriever = vector_db.as_retriever()
     
