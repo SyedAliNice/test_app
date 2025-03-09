@@ -49,7 +49,7 @@ if uploaded_file is not None:
     
     # Create prompt template
     prompt_template = ChatPromptTemplate.from_messages([
-        ("system", "You are a helpful assistant that answers questions based on the provided document context and if you will not able to answer the question from file, answer it according to your intelligence. but keep everything brief"),
+        ("system", "You are a helpful assistant that answers questions based on the provided document context and if you will not able to answer the question from file, answer it according to your intelligence. Most importantly whenever you asked to answer question in Urdu language you have give your answer in urdu language along with its translation."),
         ("user", "Context: {context}\nQuestion: {question}")
     ])
     
