@@ -10,8 +10,10 @@ from langchain.chains import RetrievalQA
 from langchain_community.embeddings import OpenAIEmbeddings
 from langchain_groq import ChatGroq
 
-# Load environment variables
-#load_dotenv()
+
+# Load API keys from Streamlit secrets
+openai_api = st.secrets["OPENAI_API_KEY"]
+groq_api = st.secrets["GROQ_API_KEY"]
 
 st.title("PDF Question Answering App")
 
@@ -30,7 +32,6 @@ if uploaded_file is not None:
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=80)
     documents = text_splitter.split_documents(docs)
     
-    export openai_api = "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"
     
     # Create vector store and retriever
     embeddings = OpenAIEmbeddings(api_key=openai_api)
@@ -38,7 +39,6 @@ if uploaded_file is not None:
     retriever = vector_db.as_retriever()
     
     # Initialize LLM
-    export groq_api = "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"
     llm = ChatGroq(model="gemma2-9b-it", api_key=groq_api)
     
     # Create prompt template
