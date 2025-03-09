@@ -15,7 +15,6 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 
 
 # Load API keys from Streamlit secrets
-openai_api = st.secrets["OPENAI_API_KEY"]
 groq_api = st.secrets["GROQ_API_KEY"]
 
 st.secrets["GOOGLE_API_KEY"]
