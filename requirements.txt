@@ -5,3 +5,4 @@ langchain_text_splitters
 langchain_community
 langchain
 langchain_groq
+pymupdf
