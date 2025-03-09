@@ -8,3 +8,5 @@ pymupdf
 openai
 faiss-cpu
 tiktoken
+google-generativeai
+langchain_google_genai
