@@ -54,7 +54,8 @@ if uploaded_file is not None:
         long questions,
         Multiple Choice Questions,
         and the difficultly level.
-        Make the question paper from the provided documents but don't write questions as it is rephrase the questions according to the difficulty level."""),
+        Make the question paper from the provided documents but don't write questions as it is rephrase the questions according to the difficulty level.
+        As well as whenever you are asked to write everything in urdu please make sure that you don't make grammatical mistakes in it."""),
         ("user", "Context: {context}\nQuestion: {question}")
     ])
     
